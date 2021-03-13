@@ -4,7 +4,8 @@
   "description": "Essa aplicação foi desenvolvida com o objetivo de obtenção de nota da disciplina de computação inteligente no IFS Campus Lagarto.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/juniorsdj/aspirador-node/issues"
   },
-  "homepage": "https://github.com/juniorsdj/aspirador-node#readme"
+  "homepage": "https://github.com/juniorsdj/aspirador-node#readme",
+  "dependencies": {
+    "canvas": "^2.7.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }
