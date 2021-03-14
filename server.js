@@ -1,16 +1,17 @@
 const express = require('express');
-const draw = require('./src/index');
+const http =  require('http') 
+const socketio = require('socket.io')
+
 
 const PORT = 3000
 const app = express()
 
+const server = http.createServer(app)
+const sockets = socketio(server)
 
-app.use('/', function (req, res, next) {
-  res.setHeader('Content-Type', 'image/png');
-  
-  draw().pngStream().pipe(res)
-});
+app.use(express.static('public'))
 
-app.listen(PORT, () =>{
+server.listen(PORT, () =>{
     console.log("App running on ",PORT)
 })
+
