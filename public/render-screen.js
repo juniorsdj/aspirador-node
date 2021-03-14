@@ -11,7 +11,7 @@ function renderScreen(screen, data, requestAnimationFrame, tamanho) {
     context.clearRect(0, 0, tamanhoBaseParaTudo, tamanhoBaseParaTudo)
 
     data.sujeiras.map((sujeira) => {
-        context.fillStyle = 'black'
+        context.fillStyle = '#999'
         context.fillRect(sujeira.x * tamanhoBaseParaTudo, sujeira.y * tamanhoBaseParaTudo, tamanhoBaseParaTudo, tamanhoBaseParaTudo)
     })
 
