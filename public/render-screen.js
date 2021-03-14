@@ -1,23 +1,36 @@
+const tamanhoBaseParaTudo = 200
+
+
+let aspiradorImg
 function renderScreen(screen, data, requestAnimationFrame, tamanho) {
-    screen.width = tamanho*10
-    screen.height = tamanho*10
+    screen.width = tamanho * tamanhoBaseParaTudo
+    screen.height = tamanho * tamanhoBaseParaTudo
 
     const context = screen.getContext('2d')
     context.fillStyle = 'white'
-    context.clearRect(0, 0, 10, 10)
+    context.clearRect(0, 0, tamanhoBaseParaTudo, tamanhoBaseParaTudo)
 
     data.sujeiras.map((sujeira) => {
         context.fillStyle = 'black'
-        context.fillRect(sujeira.x*10, sujeira.y*10, 10, 10)
+        context.fillRect(sujeira.x * tamanhoBaseParaTudo, sujeira.y * tamanhoBaseParaTudo, tamanhoBaseParaTudo, tamanhoBaseParaTudo)
     })
 
     if (data.aspirador) {
-        context.fillStyle = '#F0DB4F'
-        context.fillRect(data.aspirador.x*10, data.aspirador.y*10, 10, 10)
+        aspiradorImg && context.drawImage(aspiradorImg, data.aspirador.x * tamanhoBaseParaTudo, data.aspirador.y * tamanhoBaseParaTudo, tamanhoBaseParaTudo, tamanhoBaseParaTudo);
     }
 
 
     requestAnimationFrame(() => {
         renderScreen(screen, data, requestAnimationFrame, tamanho)
     })
+}
+
+
+
+function loadAspiradorImg() {
+    aspiradorImg = new Image();
+    aspiradorImg.src = './assets//aspirador.png';
+    aspiradorImg.onload = function () {
+        aspiradorImg = aspiradorImg
+    }
 }
