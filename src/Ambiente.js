@@ -45,12 +45,14 @@ class Ambiente {
             const x = gerarRandom2Valores(0, this.ambiente.length)
             const y = gerarRandom2Valores(0, this.ambiente.length)
             this.ambiente[x][y] = "S"
+            wsService.emitSomething('addSujeira', { x, y })
         }
 
     }
 
     limpar(x, y) {
         this.ambiente[x][y] = "L"
+        wsService.emitSomething('limparSujeira', { x, y })
     }
 }
 

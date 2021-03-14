@@ -35,6 +35,9 @@
         socket.on('addSujeira', (suj) => {
             config.addSujeira(suj)
         })
+        socket.on('limparSujeira', (suj) => {
+            config.limparSujeira(suj)
+        })
         socket.on('positionAspirador', ({x, y}) => {
             config.changePositionAspirador(x,y)
         })

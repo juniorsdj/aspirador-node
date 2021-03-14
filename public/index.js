@@ -16,8 +16,11 @@ function createConfig() {
             y: sujeira.y
         })
     }
+    function limparSujeira(sujeira) {
+        state.sujeiras = state.sujeiras.filter(item => item.x !== sujeira.x || item.y !== sujeira.x)
+    }
 
-    function changePositionAspirador(x, y){
+    function changePositionAspirador(x, y) {
         state.aspirador.x = x
         state.aspirador.y = y
     }
@@ -25,6 +28,7 @@ function createConfig() {
     return {
         changePositionAspirador,
         addSujeira,
+        limparSujeira,
         state
     }
 }
