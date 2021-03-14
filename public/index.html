@@ -22,7 +22,10 @@
 <body>
     <canvas id="screen" width="400" height="400"></canvas>
 
-    <script type="module">
+    <script>
+        const startSimulation = async (ambienteSize, qtdLixo, tempoLigado) => {
+            socket.emit("start-app", { ambienteSize, qtdLixo, tempoLigado })
+        }
         const isLiveServer = false
         //LiveServer é usado pra desenvolver sem precisar usar o websocket
         const config = createConfig()
@@ -30,7 +33,7 @@
         const screen = document.getElementById('screen')
 
         if (!isLiveServer) {
-            const socket = io()
+            var socket = io()
             socket.on('createAmbiente', ({ tamanho }) => {
                 renderScreen(screen, config.state, requestAnimationFrame, tamanho)
             })
@@ -54,10 +57,26 @@
 
 
 
-
-
-
     </script>
+
+    <div id="admin">
+        <div>
+            <label>Tamanho do ambiente</label>
+            <input type="text" value=10 id="ambienteSize"><br>
+            <label>Quantidade de lixo</label>
+            <input type="text" value=40 id="qtdLixo"><br>
+            <label>Tempo de permanência ligado(ms)</label>
+            <input type="text" value=20000 id="tempoLigado"><br>
+            <button type="button"
+                onclick="startSimulation(document.getElementById('ambienteSize').value, document.getElementById('qtdLixo').value, document.getElementById('tempoLigado').value )">Começar</button><br>
+        </div>
+
+        <br>
+
+    </div>
+
+
+
 </body>
 
 </html>

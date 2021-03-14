@@ -6,10 +6,10 @@ class Ambiente {
     #ambiente
     tamanho
     constructor(tamanho) {
-        this.ambiente = new Array(tamanho)
+        this.ambiente = new Array(Number(tamanho))
         this.tamanho = tamanho
         for (let index = 0; index < this.ambiente.length; index++) {
-            this.ambiente[index] = new Array(tamanho)
+            this.ambiente[index] = new Array(Number(tamanho))
 
         }
 
@@ -41,6 +41,7 @@ class Ambiente {
 
 
     sujar(qtd) {
+
         for (let index = 0; index < qtd; index++) {
             const x = gerarRandom2Valores(0, this.ambiente.length)
             const y = gerarRandom2Valores(0, this.ambiente.length)

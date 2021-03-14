@@ -1,7 +1,7 @@
 const express = require('express');
 const http = require('http')
 const wsService = require("./wsService")
-const indexApp = require("./src/index")
+
 
 const PORT = 3000
 const app = express()
@@ -9,11 +9,8 @@ const app = express()
 const server = http.createServer(app)
 wsService.start(server)
 
-app.use(express.static('public'))
+app.use(express.static(__dirname + '/public'))
 
 server.listen(PORT, () => {
-    setTimeout(
-        indexApp
-        , 3500)
     console.log("App running on ", PORT)
 })

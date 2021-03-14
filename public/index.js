@@ -46,3 +46,7 @@ function createConfig() {
         state
     }
 }
+
+function stopSimulation() {
+    socket.emit("stop-app")
+}

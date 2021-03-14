@@ -1,8 +1,5 @@
-// @flow
-
-
 const SocketIo = require('socket.io')
-
+const indexApp = require("./src/index")
 
 let WsInstance
 
@@ -13,6 +10,12 @@ class WsServer {
 
             WsInstance = SocketIo(app);
 
+
+            WsInstance.on("connection", (socket) => {
+                socket.on("start-app", (ambienteSize, qtdLixo, tempoLigado) => {
+                    indexApp(ambienteSize, qtdLixo, tempoLigado)
+                });
+            });
         } catch (error) {
         }
     }

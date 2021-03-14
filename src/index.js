@@ -1,13 +1,14 @@
-module.exports = () => {
+module.exports = ({ ambienteSize, qtdLixo, tempoLigado }) => {
     const Ambiente = require("./Ambiente.js")
     const Aspirador = require("./Aspirador.js")
-    const { directions } = require("./helpers")
 
+    // console.log("ambiente", ambienteSize, "lIxo", qtdLixo, "tempoLigado", tempoLigado)
 
-    const amb = new Ambiente(10)
+    const amb = new Ambiente(ambienteSize)
     const asp = new Aspirador("Aspira Turbo 3000", amb)
-    amb.sujar(40)
-    asp.ligar(20000)
-    
+
+
+    amb.sujar(qtdLixo)
+    asp.ligar(tempoLigado)
 
 }
