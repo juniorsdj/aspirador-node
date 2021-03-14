@@ -17,7 +17,8 @@ function renderScreen(screen, data, requestAnimationFrame, tamanho) {
     })
 
     if (data.aspirador) {
-        aspiradorImg && context.drawImage(aspiradorImg, data.aspirador.x * tamanhoBaseParaTudo, data.aspirador.y * tamanhoBaseParaTudo, tamanhoBaseParaTudo, tamanhoBaseParaTudo);
+        
+        aspiradorImg && context.drawImage(drawRotated(data.aspirador.angleInDegree, aspiradorImg), data.aspirador.x * tamanhoBaseParaTudo, data.aspirador.y * tamanhoBaseParaTudo, tamanhoBaseParaTudo, tamanhoBaseParaTudo);
     }
 
 
@@ -39,4 +40,32 @@ function loadImages() {
     lixoImg.onload = function () {
         lixoImg = lixoImg
     }
+}
+
+
+function drawRotated(degrees, image) {
+
+    const newScreen = document.createElement('canvas')
+    newScreen.width = tamanhoBaseParaTudo
+    newScreen.height = tamanhoBaseParaTudo
+    const context = newScreen.getContext('2d')
+    context.clearRect(0, 0, newScreen.width, newScreen.height);
+
+    // save the unrotated context of the canvas so we can restore it later
+    // the alternative is to untranslate & unrotate after drawing
+    context.save();
+
+    // move to the center of the canvas
+    context.translate(newScreen.width / 2, newScreen.height / 2);
+
+    // rotate the canvas to the specified degrees
+    context.rotate(degrees * Math.PI / 180);
+
+    // draw the image
+    // since the context is rotated, the image will be rotated also
+    context.drawImage(image, -image.width / 2, -image.width / 2, tamanhoBaseParaTudo, tamanhoBaseParaTudo);
+
+    // we’re done with the rotating so restore the unrotated context
+    context.restore();
+    return newScreen
 }
