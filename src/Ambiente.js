@@ -1,4 +1,5 @@
 const { iterar } = require("./helpers")
+const wsService = require("./../wsService")
 
 const gerarRandom2Valores = (min, max) => {
     min = Math.ceil(min);
@@ -28,11 +29,17 @@ class Ambiente {
         })
     }
 
-    print() {
-        iterar(this.ambiente, (i, j) => {
-            process.stdout.write(`${this.ambiente[i][j]} `)
-        }, true)
-        console.log("")
+    print(isWs) {
+        if (isWs) {
+            iterar(this.ambiente, (i, j) => {
+                this.ambiente[i][j] === "S" && wsService.emitSomething('addSujeira', { x: i, y: j })
+            }, true)
+        } else {
+            iterar(this.ambiente, (i, j) => {
+                process.stdout.write(`${this.ambiente[i][j]} `)
+            }, true)
+            console.log("")
+        }
     }
 
 

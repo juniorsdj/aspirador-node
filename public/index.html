@@ -27,11 +27,12 @@
 
         const config = createConfig()
         socket.on('connect', () => {
-            const playerId = socket.id
-            console.log(`Player connected on Client with id: ${playerId}`)
-
             const screen = document.getElementById('screen')
             renderScreen(screen, config.state, requestAnimationFrame)
+        })
+        socket.on('addSujeira', (suj) => {
+            console.log(suj)
+            addSujeira(suj)
         })
     </script>
 </body>
