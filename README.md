@@ -1,11 +1,12 @@
-# aspirador-node
+# Aspirador inteligente NodeJS
+
+
 
 Essa aplicação foi desenvolvida com o objetivo de obtenção de nota da disciplina de computação inteligente no IFS Campus Lagarto.
 
-Foi solicitado que desenvolvessemos uma aplicação que tivesse um ambiente e um aspirador
 
-onde o ambiente é representado por uma matriz N N e pode estar representada por S(sujo) e L(limpo)
+Iniciamente foi criado um simples aspirador que exibia via CLI através de caracteres alfanuméricos como <b>POC (proof of concept)</b>
 
-precisamos também desenvolver um aspirador, cujo pode andar para qualquer lado do ambiente e pode usar a funcionalidade de limpar
+Após a validação do conceito, evolui o projeto a uma interface usando `canvas`
 
-o entry point desses scripts é o arquivo `index.js`
+Para rodar o projeto primeiramente precisamos instalar o 
