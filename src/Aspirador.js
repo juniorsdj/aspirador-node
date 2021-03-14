@@ -51,7 +51,7 @@ class Aspirador {
             default:
                 console.log("Direção não encontrada")
         }
-        this.print(true)
+        wsService.emitSomething('positionAspirador', { x: this.posicao.getX(), y: this.posicao.getY(), direcao })
     }
 
     agir() {

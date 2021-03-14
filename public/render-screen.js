@@ -2,6 +2,8 @@ const tamanhoBaseParaTudo = 200
 
 
 let aspiradorImg
+let lixoImg
+
 function renderScreen(screen, data, requestAnimationFrame, tamanho) {
     screen.width = tamanho * tamanhoBaseParaTudo
     screen.height = tamanho * tamanhoBaseParaTudo
@@ -11,8 +13,7 @@ function renderScreen(screen, data, requestAnimationFrame, tamanho) {
     context.clearRect(0, 0, tamanhoBaseParaTudo, tamanhoBaseParaTudo)
 
     data.sujeiras.map((sujeira) => {
-        context.fillStyle = '#999'
-        context.fillRect(sujeira.x * tamanhoBaseParaTudo, sujeira.y * tamanhoBaseParaTudo, tamanhoBaseParaTudo, tamanhoBaseParaTudo)
+        lixoImg && context.drawImage(lixoImg, sujeira.x * tamanhoBaseParaTudo, sujeira.y * tamanhoBaseParaTudo, tamanhoBaseParaTudo, tamanhoBaseParaTudo)
     })
 
     if (data.aspirador) {
@@ -27,10 +28,15 @@ function renderScreen(screen, data, requestAnimationFrame, tamanho) {
 
 
 
-function loadAspiradorImg() {
+function loadImages() {
     aspiradorImg = new Image();
     aspiradorImg.src = './assets//aspirador.png';
     aspiradorImg.onload = function () {
         aspiradorImg = aspiradorImg
+    }
+    lixoImg = new Image();
+    lixoImg.src = './assets//trash.png';
+    lixoImg.onload = function () {
+        lixoImg = lixoImg
     }
 }

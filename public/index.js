@@ -20,9 +20,23 @@ function createConfig() {
         state.sujeiras = state.sujeiras.filter(item => item.x !== sujeira.x || item.y !== sujeira.y)
     }
 
-    function changePositionAspirador(x, y) {
+    function changePositionAspirador(x, y, direcao) {
         state.aspirador.x = x
         state.aspirador.y = y
+        switch (direcao) {
+            case "ESQUERDA":
+                state.aspirador.angleInDegree = 270
+                break
+            case "DIREITA":
+                state.aspirador.angleInDegree = 90
+                break
+            case "ACIMA":
+                state.aspirador.angleInDegree = 0
+                break
+            case "ABAIXO":
+                state.aspirador.angleInDegree = 180
+                break
+        }
     }
 
     return {

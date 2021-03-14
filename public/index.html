@@ -26,9 +26,9 @@
         const isLiveServer = false
         //LiveServer é usado pra desenvolver sem precisar usar o websocket
         const config = createConfig()
-        loadAspiradorImg()
+        loadImages()
         const screen = document.getElementById('screen')
-        
+
         if (!isLiveServer) {
             const socket = io()
             socket.on('createAmbiente', ({ tamanho }) => {
@@ -41,8 +41,8 @@
             socket.on('limparSujeira', (suj) => {
                 config.limparSujeira(suj)
             })
-            socket.on('positionAspirador', ({ x, y }) => {
-                config.changePositionAspirador(x, y)
+            socket.on('positionAspirador', ({ x, y, direcao }) => {
+                config.changePositionAspirador(x, y, direcao)
             })
 
             socket.on('state', (state) => {
