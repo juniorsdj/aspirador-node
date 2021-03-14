@@ -37,16 +37,16 @@ class Aspirador {
         const positionY = this.posicao.getY()
         switch (direcao) {
             case directions.ACIMA:
-                positionX > 0 && this.posicao.setX(positionX - 1)
-                break
-            case directions.ABAIXO:
-                positionX < (this.ambiente.tamanho - 1) && this.posicao.setX(positionX + 1)
-                break
-            case directions.ESQUERDA:
                 positionY > 0 && this.posicao.setY(positionY - 1)
                 break
-            case directions.DIREITA:
+            case directions.ABAIXO:
                 positionY < (this.ambiente.tamanho - 1) && this.posicao.setY(positionY + 1)
+                break
+            case directions.ESQUERDA:
+                positionX > 0 && this.posicao.setX(positionX - 1)
+                break
+            case directions.DIREITA:
+                positionX < (this.ambiente.tamanho - 1) && this.posicao.setX(positionX + 1)
                 break
             default:
                 console.log("Direção não encontrada")

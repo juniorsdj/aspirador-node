@@ -2,7 +2,7 @@ function createConfig() {
     const state = {
         aspirador: {},
         sujeiras: [],
-        // aspirador: {x: 0, y: 0, angleInDegree: 180},
+        // aspirador: {x: 0, y: 0, angleInDegree: 90},
         // sujeiras: [{ x: 0, y: 0 }, { x: 0, y: 2 }],
         screen: {
             width: 10,

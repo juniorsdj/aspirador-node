@@ -17,7 +17,6 @@ function renderScreen(screen, data, requestAnimationFrame, tamanho) {
     })
 
     if (data.aspirador) {
-        
         aspiradorImg && context.drawImage(drawRotated(data.aspirador.angleInDegree, aspiradorImg), data.aspirador.x * tamanhoBaseParaTudo, data.aspirador.y * tamanhoBaseParaTudo, tamanhoBaseParaTudo, tamanhoBaseParaTudo);
     }
 
