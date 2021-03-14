@@ -4,6 +4,7 @@
   "description": "Essa aplicação foi desenvolvida com o objetivo de obtenção de nota da disciplina de computação inteligente no IFS Campus Lagarto.",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js"
   },
