@@ -1,11 +1,5 @@
-const { iterar } = require("./helpers")
+const { iterar, gerarRandom2Valores } = require("./helpers")
 const wsService = require("./../wsService")
-
-const gerarRandom2Valores = (min, max) => {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
-}
 
 
 class Ambiente {

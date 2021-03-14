@@ -1,5 +1,5 @@
 const Posicao = require("./Posicao")
-const { directions, iterar } = require("./helpers")
+const { directions, iterar,gerarRandom2Valores } = require("./helpers")
 const wsService = require("./../wsService")
 
 class Aspirador {
@@ -13,17 +13,17 @@ class Aspirador {
         this.posicao = new Posicao(0, 0)
     }
 
-    print(isWs,hasMap) {
-        if(isWs){
+    print(isWs, hasMap) {
+        if (isWs) {
             return wsService.emitSomething('positionAspirador', { x: this.posicao.getX(), y: this.posicao.getY() })
         }
-        if(hasMap){
+        if (hasMap) {
             iterar(this.ambiente.ambiente, (i, j) => {
                 process.stdout.write(`${i === this.posicao.getX() && j === this.posicao.getY() ? "A" : this.ambiente.ambiente[i][j]} `)
             }, true)
-            return 
+            return
         }
-        
+
         console.log(this.posicao)
     }
 
@@ -52,6 +52,16 @@ class Aspirador {
                 console.log("Direção não encontrada")
         }
         this.print(true)
+    }
+
+    agir() {
+        setTimeout(() => {
+            const directArr = Object.keys(directions)
+            const directionToMove = directArr[gerarRandom2Valores(0, directArr.length)]
+
+            this.limpar()
+            this.mover(directionToMove)
+        }, 500)
     }
 }
 

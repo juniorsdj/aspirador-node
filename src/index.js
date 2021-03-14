@@ -9,8 +9,7 @@ module.exports = () => {
     amb.sujar(10)
     amb.print(true)
     asp.print(true)
-    
-
+    asp.agir()
     
 
 }
