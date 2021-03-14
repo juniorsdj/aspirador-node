@@ -5,13 +5,12 @@ module.exports = () => {
 
 
     const amb = new Ambiente(5)
-
-    // // amb.print()
+    const asp = new Aspirador("Aspira Turbo 3000", amb)
     amb.sujar(10)
     amb.print(true)
-
-    const asp = new Aspirador("Aspira Turbo 3000", amb)
-
     asp.print(true)
+    
+
+    
 
 }

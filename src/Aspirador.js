@@ -1,6 +1,6 @@
 const Posicao = require("./Posicao")
 const { directions, iterar } = require("./helpers")
-
+const wsService = require("./../wsService")
 
 class Aspirador {
     #name
@@ -13,7 +13,10 @@ class Aspirador {
         this.posicao = new Posicao(0, 0)
     }
 
-    print(hasMap) {
+    print(isWs,hasMap) {
+        if(isWs){
+            return wsService.emitSomething('positionAspirador', { x: this.posicao.getX(), y: this.posicao.getY() })
+        }
         if(hasMap){
             iterar(this.ambiente.ambiente, (i, j) => {
                 process.stdout.write(`${i === this.posicao.getX() && j === this.posicao.getY() ? "A" : this.ambiente.ambiente[i][j]} `)
@@ -48,6 +51,7 @@ class Aspirador {
             default:
                 console.log("Direção não encontrada")
         }
+        this.print(true)
     }
 }
 
