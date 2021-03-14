@@ -1,5 +1,5 @@
 const Posicao = require("./Posicao")
-const { directions, iterar,gerarRandom2Valores } = require("./helpers")
+const { directions, iterar, gerarRandom2Valores } = require("./helpers")
 const wsService = require("./../wsService")
 
 class Aspirador {
@@ -55,13 +55,19 @@ class Aspirador {
     }
 
     agir() {
-        setTimeout(() => {
+        return setInterval(() => {
             const directArr = Object.keys(directions)
             const directionToMove = directArr[gerarRandom2Valores(0, directArr.length)]
 
             this.limpar()
             this.mover(directionToMove)
         }, 500)
+    }
+
+    ligar(tempo) {
+        const agindo = this.agir()
+        setTimeout(() =>
+            clearInterval(agindo), tempo)
     }
 }
 

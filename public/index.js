@@ -17,7 +17,7 @@ function createConfig() {
         })
     }
     function limparSujeira(sujeira) {
-        state.sujeiras = state.sujeiras.filter(item => item.x !== sujeira.x || item.y !== sujeira.x)
+        state.sujeiras = state.sujeiras.filter(item => item.x !== sujeira.x || item.y !== sujeira.y)
     }
 
     function changePositionAspirador(x, y) {

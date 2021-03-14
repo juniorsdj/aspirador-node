@@ -4,12 +4,10 @@ module.exports = () => {
     const { directions } = require("./helpers")
 
 
-    const amb = new Ambiente(5)
+    const amb = new Ambiente(10)
     const asp = new Aspirador("Aspira Turbo 3000", amb)
-    amb.sujar(10)
-    amb.print(true)
-    asp.print(true)
-    asp.agir()
+    amb.sujar(40)
+    asp.ligar(20000)
     
 
 }
