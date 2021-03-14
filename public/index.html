@@ -6,7 +6,7 @@
 
     <style>
         #screen {
-            border: 10px solid #CCC;
+            border: 1px solid #CCC;
             image-rendering: pixelated;
             image-rendering: crisp-edges;
             image-rendering: -moz-crisp-edges;
@@ -26,14 +26,20 @@
         const socket = io()
 
         const config = createConfig()
-        socket.on('connect', () => {
+
+        socket.on('createAmbiente', ({ tamanho }) => {
             const screen = document.getElementById('screen')
-            renderScreen(screen, config.state, requestAnimationFrame)
+            renderScreen(screen, config.state, requestAnimationFrame, tamanho)
         })
+
         socket.on('addSujeira', (suj) => {
-            console.log(suj)
-            addSujeira(suj)
+            config.addSujeira(suj)
         })
+
+        socket.on('state', (state) => {
+            console.log(suj)
+        })
+
     </script>
 </body>
 

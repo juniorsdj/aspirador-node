@@ -12,6 +12,8 @@ wsService.start(server)
 app.use(express.static('public'))
 
 server.listen(PORT, () => {
-    indexApp()
+    setTimeout(
+        indexApp
+        , 3500)
     console.log("App running on ", PORT)
 })

@@ -4,14 +4,14 @@ module.exports = () => {
     const { directions } = require("./helpers")
 
 
-    const amb = new Ambiente(3)
+    const amb = new Ambiente(5)
 
     // // amb.print()
-    amb.sujar(9)
+    amb.sujar(10)
     amb.print(true)
 
-    // const asp = new Aspirador("Aspira Turbo 3000", amb)
+    const asp = new Aspirador("Aspira Turbo 3000", amb)
 
-    // asp.print(true)
+    asp.print(true)
 
 }

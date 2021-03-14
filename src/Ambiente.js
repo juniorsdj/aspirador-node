@@ -24,6 +24,7 @@ class Ambiente {
 
 
     initialize(tamanho) {
+        wsService.emitSomething('createAmbiente', { tamanho })
         iterar(this.ambiente, (i, j) => {
             this.ambiente[i][j] = "L"
         })
